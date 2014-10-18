@@ -1,6 +1,7 @@
 from django.conf.urls import url, include
 from rest_framework import routers
 from server import views
+from server.monitor import Monitor
 
 router = routers.DefaultRouter()
 router.register(r'trip', views.TripViewSet)
@@ -12,3 +13,10 @@ urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
+
+thread = Monitor()
+thread.start()
+
+#print " hello "
+
+#initMonitorThread()
