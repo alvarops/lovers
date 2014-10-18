@@ -32,13 +32,13 @@ class Monitor(Thread):
 				sys.exit(0)
 			allTrips = Trip.objects.all()
 			for trip in allTrips:
-				if (trip.lastPing is None):
-					print "lastPing is None"
-				else:
+				##ignore when lastping is none
+				if (not trip.lastPing is None):
 					now = datetime.now(tz=timezone.utc)
 					mintues_since_last_ping = (now - trip.lastPing).seconds / 60
 					if mintues_since_last_ping > trip.trigger:
-						print "trigger!"
+						## call my wife!!
+						pass
 			time.sleep(1)
 
 class ServerConfig(AppConfig):
@@ -48,6 +48,7 @@ class ServerConfig(AppConfig):
 
     	if not Monitor.started:
     		Monitor.startMonitor()
+    	
     	def terminate(*args):
     		if Monitor.started:
     			Monitor.stopMonitor()
