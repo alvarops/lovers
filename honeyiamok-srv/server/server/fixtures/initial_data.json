@@ -1,0 +1,7 @@
+[
+{"fields": {"phoneNumber": "353831535892", "name": "Thomas"}, "model": "server.contact", "pk": 1}, 
+{"fields": {"phoneNumber": "353834416095", "name": "Nacho"}, "model": "server.contact", "pk": 2}, 
+{"fields": {"phoneNumber": "353831584831", "name": "Enrique"}, "model": "server.contact", "pk": 3},
+{"fields": {"phoneNumber": "353831536168", "name": "Jose"}, "model": "server.contact", "pk": 4},
+{"fields": {"phoneNumber": "353860805608", "name": "Alvaro"}, "model": "server.contact", "pk": 5}
+]
