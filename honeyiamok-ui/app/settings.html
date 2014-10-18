@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Page Title</title>
+
+   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+
+   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css" />
+   <style type="text/css">
+      .profile {
+         height: 200px;
+         margin: 20px;
+         vertical-align: middle;
+      }
+
+      .header-div span {
+         display: inline;
+         font-size: 50pt;
+      }
+   </style>
+</head>
+<body>
+
+<!-- Start of second page -->
+<div data-role="page" id="settingsPage">
+
+   <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+   <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+
+   <div data-role="header">
+      <h1>Settings</h1>
+   </div><!-- /header -->
+
+   <div role="main" class="ui-content">
+      <h1>Contact number is: +353 083 123 4567</h1>
+      <h3>Trigger alarm when:</h3>
+      <label for="slider-1">I have been unresponsive for (minutes):</label>
+      <input type="range" name="slider-1" id="slider-1" min="5" max="30" value="10">
+      <h3>OR</h3>
+      <label for="slider-2">I have not moved further than (meters):</label>
+      <input type="range" name="slider-2" id="slider-2" min="10" max="5000" value="50">
+      <label for="flip-1">Try to contact me first:</label>
+       <select id="flip-1" name="flip-1" data-role="slider">
+           <option value="off">Off</option>
+           <option value="on" selected>On</option>
+       </select>
+   </div><!-- /content -->
+
+   <div class="ui-grid-a">
+      <div class="ui-block-a">
+          <a id="toIndex" href="index.html" data-direction="reverse" class="ui-btn ui-corner-all ui-shadow" rel="external">&lt; Your trip</a>
+      </div>
+      <div class="ui-block-b">
+        <a id="toContacts" href="contacts.html" class="ui-btn ui-corner-all ui-shadow" rel="external">Contacts &gt;</a>
+      </div>
+   </div>
+
+   <script type="text/javascript">
+   var data = {};
+   $("#settingsPage").bind("pageshow", function(event){
+      $("#toIndex").mouseover(function() {
+         var query = "?";
+         query += "slider1=" + $("#slider-1").val();
+         query += "&slider2=" + $("#slider-2").val();
+         query += "&flip1=" + $("#flip-1").val();
+         this.href = "index.html" + query;
+      });
+
+      $("#toContacts").click(function() {
+         var query = "?";
+         query += "slider1=" + $("#slider-1").val();
+         query += "&slider2=" + $("#slider-2").val();
+         query += "&flip1=" + $("#flip-1").val();
+         this.href = "contacts.html" + query;
+      });
+
+      var url = getUrlVars();
+      if (url.slider1 && url.slider1 !== 'undefined') {
+        $("#slider-1").val(url.slider1);
+        $('#slider-1').slider('refresh');
+      } 
+      if (url.slider2 && url.slider2 !== 'undefined') {
+        $("#slider-2").val(url.slider2);
+        $('#slider-2').slider('refresh');
+      }
+      if (url.flip1 && url.flip1 !== 'undefined') {
+        $("#flip-1").val(url.flip1);
+        $('#flip-1').slider('refresh');
+      }
+   });
+
+   function getUrlVars() {
+       var vars = [], hash;
+       var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+       for(var i = 0; i < hashes.length; i++) {
+           hash = hashes[i].split('=');
+           vars[hash[0]] = hash[1];
+       }
+       return vars;
+   }
+</script>
+</div><!-- /page -->
+
+</body>
+</html>

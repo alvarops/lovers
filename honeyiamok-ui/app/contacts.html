@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Page Title</title>
+
+   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+
+   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css" />
+   <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+   <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+   <script src="scripts/libs/jquery.ui.touch-punch.min.js"></script>
+   <script src="scripts/libs/jqm.autoComplete-1.5.2.js"></script>
+   <style type="text/css">
+      .profile {
+         height: 200px;
+         margin: 20px;
+         vertical-align: middle;
+      }
+
+      .header-div span {
+         display: inline;
+         font-size: 50pt;
+      }
+   </style>
+</head>
+<body>
+
+<!-- Start of first page -->
+<div data-role="page" id="soo">
+   <div data-role="header">
+      <h1>Your contact list</h1>
+   </div><!-- /header -->
+
+   <div role="main" class="ui-content">
+      Contacts go here
+      <input type="search" id="searchField" placeholder="Type to search">
+      <ul id="suggestions" data-role="listview" data-inset="true"></ul>
+
+      <div id="items" data-role="button">
+      </div>
+   </div><!-- /content -->
+
+   <div class="ui-grid-a">
+      <div class="ui-block-a"><a href="settings.html" data-direction="reverse" class="ui-btn ui-corner-all ui-shadow" rel="external">&lt; Settings</a></div>
+      <div class="ui-block-b"><a href="#" class="ui-btn ui-corner-all ui-shadow" rel="external">START</a></div>
+   </div>
+
+   <script language="javascript">
+   $("#soo").bind("pageshow", function(e) {
+       $('#items').sortable();
+       $('#items').disableSelection();
+       $('#items').on('sortstop', function(event, ui) {
+             $('#items').listview('refresh');
+       });
+
+         var autocompleteData = $.parseJSON('[{"label":"Wife (+353 087 654 3210)","value":"Wife"},{"label":"Mum (+353 087 658 3210)","value":"Mum"},{"label":"Dad (+353 087 655 3210)","value":"Dad"}]');
+
+         $("#searchField").autocomplete({
+            target: $('#suggestions'),
+            source: autocompleteData,
+            callback: function(e) {
+               var $a = $(e.currentTarget);
+               $('#searchField').val("");
+               $("#searchField").autocomplete('clear');
+
+               var matcher = new RegExp($a.data('autocomplete').value, "i" );
+               if (!matcher.test($("#items").html())) {
+                 $('#items').append('<a href="#" data-icon="flat-cmd" data-role="button">' + $a.data('autocomplete').value  + '</a>');
+                 $('#items').trigger('create');
+               }
+            },
+            minLength: 1,
+            matchFromStart: false
+         });
+      });
+</script>
+</div><!-- /page -->
+
+</body>
+</html>
