@@ -1,7 +1,9 @@
 from django.contrib.auth.models import User, Group
+from django.http import HttpResponse
 from rest_framework import viewsets
 from models import Trip, Contact
 from server.server.serializers import UserSerializer, GroupSerializer, TripSerializer, ContactSerializer
+from django.views.generic import View
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -32,3 +34,11 @@ class ContactViewSet(viewsets.ModelViewSet):
     """
     queryset = Contact.objects.all()
     serializer_class = ContactSerializer
+
+
+class StatusView(View):
+
+    def get(self, request):
+        trip_id = request.GET['id'] if request.GET and request.GET['id'] else 0
+        trip = Trip.objects.filter(id=trip_id)
+        return HttpResponse(str(trip))
