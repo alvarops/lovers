@@ -1,10 +1,9 @@
-/*global define */
 define([
-    'jquery',
-    'map'
+    'jquery'
 ], function($) {
     var initialize = function() {
-        map.initialize();
+        // Pass in our Router module and call it's initialize function
+        console.log("message");
     }
 
     return {

@@ -10,11 +10,14 @@
    <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
    <script data-main="scripts/main" src="scripts/libs/jquery.ui.touch-punch.min.js"></script>
+   <script src="//js.arcgis.com/3.11/"></script>
+   <script data-main="scripts/main" src="scripts/libs/require.js"></script>
 
    <link rel="stylesheet" href="styles/css/font-awesome.css">
    <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+   <link rel="stylesheet" type="text/css" href="http://js.arcgis.com/3.11/esri/css/esri.css">
    <link rel="stylesheet" href="styles/css/app.css">
-
+   <link rel="stylesheet" href="styles/css/destination.css">
 </head>
 <body>
 
@@ -35,11 +38,11 @@
    </div><!-- /header -->
 
    <div role="main" class="ui-content">
-      <div>Enter details of your trip:</div>
-   
+      <div id="map" class="map">
+    <div id="LocateButton"></div>
+  </div>
+
    </div><!-- /content -->
-   
-   <a href="./settings.html" data-transition="flow" class="ui-btn ui-corner-all ui-shadow">Settings &gt;</a>
-</div><!-- /page -->
+   </div><!-- /page -->
 
 </body>
