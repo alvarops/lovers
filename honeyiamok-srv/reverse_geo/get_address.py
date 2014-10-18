@@ -18,7 +18,7 @@ def point_to_address(x, y):
 	# url = 'http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Locators/ESRI_Geocode_USA/GeocodeServer/reverseGeocode'
 	url = 'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/reverseGeocode'
 	params = dict(
-	    location="-117.195681386,34.057517097",
+	    location="51.5286416,-0.1015987",
 	    token=token,
 	    f='pjson',
 	    outSR='',
