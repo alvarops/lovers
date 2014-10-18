@@ -4,7 +4,7 @@ require.config({
 		jqueryMobile: 'libs/jquery.mobile-1.4.4'
 	},
   shim: {
-	"libs/jquery.mobile-1.3.2'" : { deps: ["jquery"], exports: 'jquery' },
+	"libs/jquery.mobile-1.4.4'" : { deps: ["jquery"], exports: 'jquery' },
   }
 });
 
