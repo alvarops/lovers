@@ -18,9 +18,9 @@ class TripSerializer(serializers.ModelSerializer):
     class Meta:
         model = Trip
         fields = ('username', 'interval', 'toLatLng', 'fromLatLng', 'contacts')
-        depth = 1
+        depth = 2
 
 class ContactSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contact
-        fields = ('name', 'phoneNumber', 'trip')
+        fields = ('name', 'phoneNumber')
