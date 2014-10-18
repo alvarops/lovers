@@ -9,30 +9,27 @@ def refresh_token():
 		f='pjson'
 	)
 	resp = requests.get(url=url, params=params)
-	print resp.text
+	# print resp.text
 	obj = resp.json()
 	return obj["access_token"]
 	
-def point_to_address(x, y):
+def point_to_address(longitude, latitude):
 	token = refresh_token()
-	# url = 'http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Locators/ESRI_Geocode_USA/GeocodeServer/reverseGeocode'
 	url = 'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/reverseGeocode'
 	params = dict(
-	    location="51.5286416,-0.1015987",
+	    location=`longitude` + "," + `latitude`,
 	    token=token,
 	    f='pjson',
 	    outSR='',
 	    distance=50
 	)
-	# params = dict(
-	# 	location=`x` + ',' + `y`,
-	# 	distance=50,
-	# 	outSR='',
-	# 	f='pjson'
-	# 	)
+	## longitude, latitude
 	resp = requests.get(url=url, params=params)
-	print resp.url
-	print resp.text
+	# print resp.url
+	# print resp.text
 	data = resp.json()
-	# data = resp.loads(resp.text).json()
-	return data["address"]["Address"] + ", " + data["address"]["City"] 
+	address = data["address"]["Address"]
+	city = data["address"]["City"] 
+	neighborhood = data["address"]["Neighborhood"] 
+	return ", ".join([x for x in (address, city, neighborhood) if x])
+
