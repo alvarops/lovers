@@ -2,12 +2,8 @@
     font-family: 'Arvo', serif;
 }
 
-html { 
-  background: url(./../../img/cover.png) no-repeat center center fixed; 
-/*  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;*/
+html, body { 
+
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
@@ -28,12 +24,12 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     text-shadow: 4px 3px 0 #1d9d74, 9px 8px 0 rgba(0, 0, 0, 0.15);
 }
 .title b {
-    font-size: 100%;
+    font-size: 150%;
     padding-left: 10px;
 }
 .title span {
     display: block;
-    font-size: 55%;
+    font-size: 80%;
     font-weight: 100;
     color: #C4C4C4;
     text-shadow: 3px 4px 0 rgba(0, 0, 0, 0.15);
@@ -52,20 +48,9 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     font-size: 20pt;
 }
 
-.avatar  img {
-    width: 100%;
-    max-width: 135px;
-    background: none repeat scroll 0% 0% #FFF;
-    height: auto;
-    padding: 5px;
-    box-sizing: border-box;
-    border: 1px solid #DDD;
-    display: block;
+div[data-role="page"] {
+    background-color: #3D5F64;
 }
-
-.avatar span {
-    background: none repeat scroll 0% 0% #FFF;
-    height: auto;
-    box-sizing: border-box;
-    display: block;
+div[role="main"] {
+    text-align: center;
 }
