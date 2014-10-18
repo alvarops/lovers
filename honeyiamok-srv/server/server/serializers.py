@@ -14,13 +14,14 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
         model = Group
         fields = ('url', 'name')
 
-class TripSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Trip
-        fields = ('username', 'interval', 'toLatLng', 'fromLatLng', 'contacts')
-        depth = 2
-
 class ContactSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contact
-        fields = ('name', 'phoneNumber')
+        fields = ('id', 'name', 'phoneNumber')
+
+class TripSerializer(serializers.ModelSerializer):
+    depth = 2
+
+    class Meta:
+        model = Trip
+        fields = ('id', 'username', 'interval', 'toLatLng', 'fromLatLng', 'contacts')
