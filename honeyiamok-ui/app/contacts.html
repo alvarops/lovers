@@ -50,9 +50,21 @@
    </div>
 
    <script language="javascript">
-   var autocompleteData = $.parseJSON('[{"label":"Wife (+353 087 654 3210)","value":"Wife"},{"label":"Mum (+353 087 658 3210)","value":"Mum"},{"label":"Dad (+353 087 655 3210)","value":"Dad"}]');
+   var autocompleteData = $.parseJSON('[{"id": 1, "name": "Thomas", "phoneNumber": "353831535892"}, {"id": 2, "name": "Nacho", "phoneNumber": "353834416095"}, {"id": 3, "name": "Enrique", "phoneNumber": "353831584831"}, {"id": 4, "name": "Jose", "phoneNumber": "353831536168"}, {"id": 5, "name": "Alvaro", "phoneNumber": "353860805608"}]');
 
    $("#contactsPage").bind("pageshow", function(e) {
+            /*$.ajax({
+                url: "http://127.0.0.1\:8000/contact",
+                dataType: "json",
+                crossDomain: true
+            })
+            .then( function ( response ) {
+                $.each( response, function ( i, val ) {
+                    console.log(val);
+                });
+            });*/
+
+
        $('#items').sortable();
        $('#items').disableSelection();
        $('#items').on('sortstop', function(event, ui) {
@@ -61,15 +73,26 @@
 
          $("#searchField").autocomplete({
             target: $('#suggestions'),
-            source: autocompleteData,
+            source: function (request, response) {
+              var matcher = new RegExp( "" + $.ui.autocomplete.escapeRegex( request ), "i" );
+              response( $.grep( autocompleteData, function( item ){
+                  if (matcher.test( item.name ) || matcher.test( item.phoneNumber )) {
+                    item.label = item.name + " (" + item.phoneNumber + ")";
+                    item.value = item.name;
+                    return true;
+                  }
+                  return false;
+              }) );
+            },
             callback: function(e) {
                var $a = $(e.currentTarget);
                $('#searchField').val("");
                $("#searchField").autocomplete('clear');
 
-               var matcher = new RegExp($a.data('autocomplete').value, "i" );
+               var matcher = new RegExp($a.data('autocomplete').name, "i" );
                if (!matcher.test($("#items").html())) {
-                 $('#items').append('<a class="contact" href="#" data-icon="flat-cmd" data-role="button">' + $a.data('autocomplete').value  + '</a>');
+                 $('#items').append('<a class="contact" href="#" data-icon="flat-cmd" data-id="' + $a.data('autocomplete').id +
+                  '" data-role="button">' + $a.data('autocomplete').value  + '</a>');
                  $('#items').trigger('create');
                }
             },
@@ -84,7 +107,13 @@
 
         var index = 0;
         while (url["c"+index]) {
-          $('#items').append('<a class="contact" href="#" data-icon="flat-cmd" data-role="button">' + url["c"+index]  + '</a>');
+          var contact = $.grep( autocompleteData, function( item ){
+            return (item.id && item.id == url["c"+index]);
+          })
+          if (contact && contact.length > 0) {
+            $('#items').append('<a class="contact" href="#" data-icon="flat-cmd" data-role="button" data-id="' + contact[0].id 
+              + '">' + contact[0].name + '</a>');
+          }
           index++;
         }
         $('#items').trigger('create');
@@ -122,7 +151,7 @@
    function extractContacts() {
      var contacts = "";
      $("a.contact").each(function (index, item, args) {
-       contacts += "&c" + index + "=" + $(item).text();
+       contacts += "&c" + index + "=" + $(item).attr("data-id");
      });
      return contacts;
    }
@@ -130,7 +159,7 @@
    function copyContactsToData() {
      data.contacts = {};
      $("a.contact").each(function (index, item, args) {
-       data.contacts[index] = $(item).text();
+       data.contacts[index] = $(item).attr("data-id");
      });
    }
 </script>
