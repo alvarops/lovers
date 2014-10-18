@@ -1,0 +1,27 @@
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    color: inherit;
+    font-family: 'Arvo', serif;
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+.container {
+    background-color: #3D5F64;
+    border-bottom: 1px solid #1b926c;
+    border-top: 1px solid #34a782;
+    margin-bottom: 0;
+    padding: 50px 0 40px;
+    color: #ffffff;
+}
+
+.header {
+    letter-spacing: -2px;
+    line-height: 1;
+    margin: 10 0 15px;
+    text-shadow: 4px 3px 0 #1d9d74, 9px 8px 0 rgba(0, 0, 0, 0.15);
+}
+
+.header b {
+    font-size: 150%;
+    padding-left: 5px;
+}
