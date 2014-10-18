@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>HONEY:I AM OK!</title>
+
+   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+
+   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css" />
+   <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+   <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+   <script data-main="scripts/main" src="scripts/libs/jquery.ui.touch-punch.min.js"></script>
+   <script src="//js.arcgis.com/3.11/"></script>
+   <script data-main="scripts/main" src="scripts/libs/require.js"></script>
+
+   <link rel="stylesheet" href="styles/css/font-awesome.css">
+   <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+   <link rel="stylesheet" type="text/css" href="http://js.arcgis.com/3.11/esri/css/esri.css">
+   <link rel="stylesheet" href="styles/css/app.css">
+   <link rel="stylesheet" href="styles/css/destination.css">
+   <script>
+    var map; 
+
+    require([
+      "esri/map", 
+      "esri/dijit/LocateButton",
+      "dojo/domReady!"
+    ], function(
+      Map, LocateButton
+    )  {
+
+      map = new Map("map", {
+        center: [-56.049, 38.485],
+        zoom: 3,
+        basemap: "streets"
+      });
+            
+      geoLocate = new LocateButton({
+        map: map
+      }, "LocateButton");
+      geoLocate.startup();
+
+    });
+  </script>
+
+</head>
+<body>
+
+<!-- Start of first page -->
+<div data-role="page" id="foo">
+
+   <div data-role="header">
+
+      <div class="title">
+         <h1><i class="fa fa-angellist fa-3x"></i><b>HONEY,I AM OK!</b></h1>
+      </div>
+      <div class="header-div">
+         <div style="display: inline">
+            <img src="img/avatar.png" class="profile" />
+         </div>
+         <span>John Doe</span>
+      </div>
+   </div><!-- /header -->
+
+   <div role="main" class="ui-content">
+      <div id="map" class="map">
+    <div id="LocateButton"></div>
+  </div>
+
+   </div><!-- /content -->
+   </div><!-- /page -->
+
+</body>

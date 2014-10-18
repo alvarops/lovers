@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>HONEY:I AM OK!</title>
+
+   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+
+   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css" />
+   <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+   <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+   <script data-main="scripts/main" src="scripts/libs/jquery.ui.touch-punch.min.js"></script>
+
+   <link rel="stylesheet" href="styles/css/font-awesome.css">
+   <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+   <link rel="stylesheet" href="styles/css/app.css">
+
+</head>
+<body>
+
+<!-- Start of first page -->
+<div data-role="page" id="mainPage">
+
+   <div data-role="header">
+
+      <div class="title">
+         <h1><i class="fa fa-angellist fa-3x"></i>
+            <b>HONEY,I AM OK!</b>
+            <span>geo-agent to keep your people aware of your trip</span>
+         </h1>
+      </div>
+
+      <div class="header-div">
+         <div class="avatar" style="display: inline">
+            <img src="img/avatar.png" class="profile" />
+            <span>John Doe</span>
+         </div>
+      </div>
+   </div><!-- /header -->
+
+   <div role="main" class="ui-content">
+      <div>Enter details of your trip:</div>
+   </div><!-- /content -->
+   
+   <a id="toSettings" href="settings.html" class="ui-btn ui-corner-all ui-shadow" rel="external">Settings &gt;</a>
+
+
+<script type="text/javascript">
+   var data = {};
+   $(document).bind("pageinit", function() {
+      $("#toSettings").mouseover(function() {
+         var query = "?";
+         query += "timeToWait=" + data.timeToWait;
+         query += "&distanceToWait=" + data.distanceToWait;
+         query += "&tryToReach=" + data.tryToReach;
+         var index = 0;
+         while (data["c"+index]) {
+           query += "&c" + index + "=" + data["c"+index];
+           index++;
+         }
+         this.href = "settings.html" + query;
+      });
+   });
+
+   $("#mainPage").bind("pageshow", function(event){
+      var url = getUrlVars();
+      data.timeToWait = url.timeToWait;
+      data.distanceToWait = url.distanceToWait;
+      data.tryToReach = url.tryToReach;
+      var index = 0;
+      while (url["c"+index]) {
+        data["c"+index] = url["c"+index];
+        index++;
+      }
+   });
+
+   function getUrlVars() {
+       var vars = [], hash;
+       var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+       for(var i = 0; i < hashes.length; i++) {
+           hash = hashes[i].split('=');
+           vars[hash[0]] = hash[1];
+       }
+       return vars;
+   }
+</script>
+
+</div><!-- /page -->
+
+</body>
+</html>
