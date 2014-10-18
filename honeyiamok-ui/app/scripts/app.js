@@ -1,5 +1,12 @@
-/*global define */
-define([], function () {
-    'use strict';
-    return '\'Allo \'Allo!';
+define([
+    'jquery',
+    'map'
+], function($) {
+    var initialize = function() {
+        map.initialize();
+    }
+
+    return {
+        initialize: initialize
+    };
 });
