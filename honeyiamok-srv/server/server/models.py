@@ -10,7 +10,7 @@ class Trip(models.Model):
 	interval = models.IntegerField()
 	toLatLng = models.CharField(max_length=150)
 	fromLatLng = models.CharField(max_length=150)
-	lastPing = models.DateField(blank=True, null=True)
+	lastPing = models.DateTimeField(blank=True, null=True)
 	contacts = models.ManyToManyField(Contact)
 
 class Location(models.Model):
