@@ -1,6 +1,5 @@
-## Yeoman - Node
-node_modules/
-bower_components/
-*.log
-build/
-dist/
+~
+*.DS_Store
+.idea
+**/.idea/
+venv/
