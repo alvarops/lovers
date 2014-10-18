@@ -34,13 +34,13 @@
    <div role="main" class="ui-content">
       <h1>Contact number is: +353 083 123 4567</h1>
       <h3>Trigger alarm when:</h3>
-      <label for="slider-1">I have been unresponsive for (minutes):</label>
-      <input type="range" name="slider-1" id="slider-1" min="5" max="30" value="10">
+      <label for="timeToWait">I have been unresponsive for (minutes):</label>
+      <input type="range" name="timeToWait" id="timeToWait" min="5" max="30" value="10">
       <h3>OR</h3>
-      <label for="slider-2">I have not moved further than (meters):</label>
-      <input type="range" name="slider-2" id="slider-2" min="10" max="5000" value="50">
-      <label for="flip-1">Try to contact me first:</label>
-       <select id="flip-1" name="flip-1" data-role="slider">
+      <label for="distanceToWait">I have not moved further than (meters):</label>
+      <input type="range" name="distanceToWait" id="distanceToWait" min="10" max="5000" value="50">
+      <label for="tryToReach">Try to contact me first:</label>
+       <select id="tryToReach" name="tryToReach" data-role="slider">
            <option value="off">Off</option>
            <option value="on" selected>On</option>
        </select>
@@ -58,36 +58,51 @@
    <script type="text/javascript">
    var data = {};
    $("#settingsPage").bind("pageshow", function(event){
+      var url = getUrlVars();
+      var index = 0;
+      while (url["c"+index]) {
+        data["c"+index] = url["c"+index];
+        index++;
+      }
+
       $("#toIndex").mouseover(function() {
-         var query = "?";
-         query += "slider1=" + $("#slider-1").val();
-         query += "&slider2=" + $("#slider-2").val();
-         query += "&flip1=" + $("#flip-1").val();
+         var query = getQueryString();
          this.href = "index.html" + query;
       });
 
-      $("#toContacts").click(function() {
-         var query = "?";
-         query += "slider1=" + $("#slider-1").val();
-         query += "&slider2=" + $("#slider-2").val();
-         query += "&flip1=" + $("#flip-1").val();
+      $("#toContacts").mouseover(function() {
+         var query = getQueryString();
          this.href = "contacts.html" + query;
       });
 
       var url = getUrlVars();
-      if (url.slider1 && url.slider1 !== 'undefined') {
-        $("#slider-1").val(url.slider1);
-        $('#slider-1').slider('refresh');
+      if (url.timeToWait && url.timeToWait !== 'undefined') {
+        $("#timeToWait").val(url.timeToWait);
+        $('#timeToWait').slider('refresh');
       } 
-      if (url.slider2 && url.slider2 !== 'undefined') {
-        $("#slider-2").val(url.slider2);
-        $('#slider-2').slider('refresh');
+      if (url.distanceToWait && url.distanceToWait !== 'undefined') {
+        $("#distanceToWait").val(url.distanceToWait);
+        $('#distanceToWait').slider('refresh');
       }
-      if (url.flip1 && url.flip1 !== 'undefined') {
-        $("#flip-1").val(url.flip1);
-        $('#flip-1').slider('refresh');
+      if (url.tryToReach && url.tryToReach !== 'undefined') {
+        $("#tryToReach").val(url.tryToReach);
+        $('#tryToReach').slider('refresh');
       }
    });
+
+    function getQueryString() {
+      var query = "?";
+      query += "timeToWait=" + $("#timeToWait").val();
+      query += "&distanceToWait=" + $("#distanceToWait").val();
+      query += "&tryToReach=" + $("#tryToReach").val();
+      var index = 0;
+      while (data["c"+index]) {
+        query += "&c" + index + "=" + data["c"+index];
+        index++;
+      }
+
+      return query;
+   }
 
    function getUrlVars() {
        var vars = [], hash;
@@ -98,7 +113,7 @@
        }
        return vars;
    }
-</script>
+  </script>
 </div><!-- /page -->
 
 </body>

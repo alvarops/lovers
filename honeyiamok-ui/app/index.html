@@ -50,18 +50,28 @@
    $(document).bind("pageinit", function() {
       $("#toSettings").mouseover(function() {
          var query = "?";
-         query += "slider1=" + data.slider1;
-         query += "&slider2=" + data.slider2;
-         query += "&flip1=" + data.flip1;
+         query += "timeToWait=" + data.timeToWait;
+         query += "&distanceToWait=" + data.distanceToWait;
+         query += "&tryToReach=" + data.tryToReach;
+         var index = 0;
+         while (data["c"+index]) {
+           query += "&c" + index + "=" + data["c"+index];
+           index++;
+         }
          this.href = "settings.html" + query;
       });
    });
 
    $("#mainPage").bind("pageshow", function(event){
       var url = getUrlVars();
-      data.slider1 = url.slider1;
-      data.slider2 = url.slider2;
-      data.flip1 = url.flip1;
+      data.timeToWait = url.timeToWait;
+      data.distanceToWait = url.distanceToWait;
+      data.tryToReach = url.tryToReach;
+      var index = 0;
+      while (url["c"+index]) {
+        data["c"+index] = url["c"+index];
+        index++;
+      }
    });
 
    function getUrlVars() {
