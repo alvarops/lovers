@@ -22,4 +22,4 @@ Stay safe and relax knowing that someone keeps an eye on you.
 
  Services:
    * [Twilio API](https://www.twilio.com/sms/api)
-   * [Nexmo API](https://docs.nexmo.com/index.php/sms-api)
+   * [ArcGis API](https://developers.arcgis.com/en/)
