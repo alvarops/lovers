@@ -1,0 +1,48 @@
+ html,body {
+  font-family: Arial,Helvetica,sans-serif;
+  height:100%;
+  margin:0;
+}
+#map {
+  height:100%;
+  overflow:hidden;
+}
+#dialog {
+  position: relative;
+  padding: 5px;
+  width: 380px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  margin: 8px;
+  box-shadow: 0px 1px 3px #888;
+}
+#dialog input{
+  margin: 0.5em;
+  width: 20em;
+}
+#grid{
+  overflow-x:hidden;
+  overflow-y:auto;
+}
+input#directions {
+  margin: 0.5em auto;
+  width:  8em;
+  display: block;
+}
+.dgrid-row{
+  padding:5px;
+  margin-bottom:5px;
+  min-height:50px;
+  border-bottom: solid 1px #C0C0C0;
+}
+.dgrid-row .detail div {
+  cursor: pointer;
+}
+.dgrid-row .detail div:hover{
+  text-decoration:underline;
+}
+.distance{
+  float:right;
+  color:#C0C0C0;
+  font-style:italic;
+}

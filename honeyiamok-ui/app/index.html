@@ -9,20 +9,27 @@
    <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
    <script data-main="scripts/main" src="scripts/libs/jquery.ui.touch-punch.min.js"></script>
-   <!-- // <script data-main="scripts/main" src="scripts/libs/require.js"></script> -->
+   <script src="//js.arcgis.com/3.11/"></script>
 
    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css" />
    <link rel="stylesheet" href="styles/css/custom-theme.min.css" />
    <link rel="stylesheet" href="styles/css/jquery.mobile.icons.min.css" />
    <link rel="stylesheet" href="styles/css/font-awesome.css">
    <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+   <link rel="stylesheet" href="http://js.arcgis.com/3.11/dijit/themes/claro/claro.css">
+   <link rel="stylesheet" type="text/css" href="http://js.arcgis.com/3.11/esri/css/esri.css">
    <link rel="stylesheet" href="styles/css/app.css">
+   <link rel="stylesheet" href="styles/css/map.css">
 
 </head>
 <body>
 
 <!-- Start of first page -->
-<div data-role="page" id="mainPage">
+<div data-role="page" id="mainPage" class="claro">
+
+<div data-role="panel" id="mydirections">
+    <!-- panel content goes here -->
+</div><!-- /panel -->
 
    <div data-role="header">
 
@@ -41,11 +48,22 @@
       </div>
    </div><!-- /header -->
 
-   <i class="fa fa-map-market fa-2x">
-   <div role="main" class="ui-content">
-      <div id="map" class="map">
-      <div id="LocateButton"></div>
-   </div><!-- /content -->
+   <div role="main" class="ui-content claro">
+    <div id="map"></div>
+       <div id="dialog">
+         <div>
+           <label for="fromTxf"><img src="http://static.arcgis.com/images/Symbols/Shapes/GreenPin1LargeB.png" width=24 height=24></label>
+           <input type="text" id="fromTxf" value="380 New York St, Redlands, CA 92373">
+         </div>
+         <div >
+           <label for="toTxf"><img src="http://static.arcgis.com/images/Symbols/Shapes/RedPin1LargeB.png" width=24 height=24></label>
+           <input type="text" id="toTxf" value="1320 Mona Ave, Redlands, CA 92374">
+         </div>
+         <input id="directions" type="button" value="Get Directions">
+         <div id="directionsDetail" style="clear:both;">
+           <div id="grid"></div>
+      </div>
+   </div>
 
    <div data-role="footer" class="ui-grid-a" data-position="fixed">
       <div data-role="navbar">
@@ -60,10 +78,9 @@
       </div>
    </div>
 
+</div><!-- /page -->
 
 <script src="scripts/index.js"></script>
-
-</div><!-- /page -->
 
 </body>
 </html>
