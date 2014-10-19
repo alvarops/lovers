@@ -1,7 +1,6 @@
 from django.conf.urls import url, include
 from rest_framework import routers
 from server import views
-from server.monitor import Monitor
 
 router = routers.DefaultRouter()
 router.register(r'trip', views.TripViewSet)
@@ -14,3 +13,4 @@ urlpatterns = [
     url(r'^status/(?P<trip_id>\d+)', views.StatusView.as_view()),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
+
