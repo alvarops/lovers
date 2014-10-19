@@ -1,4 +1,6 @@
-from threading import Thread, Lock
+import json
+from threading import Thread
+import math
 from models import Trip
 import time
 import sys
@@ -8,25 +10,28 @@ from datetime import timedelta, datetime
 from django.utils import timezone
 from server.twillio.callers.twilio_api import TwilioCall
 
-#mutex = Lock()
-#
-#
-#
-#def start_monitor():
-#    global instance, mutex
-#    mutex.acquire()
-#    try:
-#        if not instance:
-#            instance = Monitor()
-#            instance.setDaemon(True)
-#            instance.start()
-#    finally:
-#        mutex.release()
-#
-#
-#def stop_monitor():
-#    global instance
-#    instance.stop = True
+
+def compute_distance_of_recent_points(trip):
+    locations_list = trip.location_set.all()
+    if len(locations_list) < 2:
+        return 0
+
+    points = locations_list[len(locations_list) - 2:]
+
+    point_a = {
+        'x': float(points[0].latLng.split(",")[0]),
+        'y': float(points[0].latLng.split(",")[1])
+    }
+
+    point_b = {
+        'x': float(points[1].latLng.split(",")[0]),
+        'y': float(points[1].latLng.split(",")[1])
+    }
+
+    print json.dumps(point_a)
+    print json.dumps(point_b)
+
+    return math.hypot(point_b['x'] - point_a['x'], point_b['y'] - point_a['y'])
 
 
 class Monitor(Thread):
@@ -44,10 +49,14 @@ class Monitor(Thread):
             allTrips = Trip.objects.all()
             for trip in allTrips:
                 ##ignore when lastping is none
-                if not trip.lastPing is None:
+                if trip.lastPing:
                     now = datetime.now(tz=timezone.utc)
-                    mintues_since_last_ping = (now - trip.lastPing).seconds / 60
-                    if mintues_since_last_ping > trip.trigger:
+
+                    distance = compute_distance_of_recent_points(trip)
+                    minutes_since_last_loc_change = (now - trip.lastLocationLogged).seconds / 60
+
+                    print str(distance) + " and " + str(minutes_since_last_loc_change)
+                    if minutes_since_last_loc_change >= trip.timeToWait and distance <= trip.distanceToWait:
                         print "Placing call for trip {0}.".format(trip.username)
                         call = TwilioCall([contact.phoneNumber for contact in trip.contacts.all()],
                                           "http://home.tkountis.com/honeyiamok/call_response.php?{0}",
