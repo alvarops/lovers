@@ -3,8 +3,10 @@ from django.db import models
 class Contact(models.Model):
 	name = models.CharField(max_length=50)
 	phoneNumber = models.CharField(max_length=50)
-	pass
 
+	def __unicode__(self):
+		return u'%s - %s' % (self.name, self.phoneNumber)
+    
 class Trip(models.Model):
 	username = models.CharField(max_length=50)
 	interval = models.IntegerField(default=1)
