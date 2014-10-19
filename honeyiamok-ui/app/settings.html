@@ -1,38 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <title>Page Title</title>
+    <title>HONEY:I AM OK!</title>
+    <link rel='shortcut icon' type='image/x-icon' href='img/favicon.ico' />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
 
-   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
-
-   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css" />
-   <style type="text/css">
-      .profile {
-         height: 200px;
-         margin: 20px;
-         vertical-align: middle;
-      }
-
-      .header-div span {
-         display: inline;
-         font-size: 50pt;
-      }
-   </style>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+    <script data-main="scripts/main" src="scripts/libs/jquery.ui.touch-punch.min.js"></script>
+    <link rel="stylesheet" href="styles/css/font-awesome.css">
+    <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="styles/css/app.css">
 </head>
 <body>
 
 <!-- Start of second page -->
 <div data-role="page" id="settingsPage">
 
-   <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-   <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
-
    <div data-role="header">
-      <h1>Settings</h1>
+
+      <div class="title">
+         <h1><i class="fa fa-angellist"></i>
+            <b>HONEY,I AM OK!</b>
+            <span>geo-agent to keep your people aware of your trip</span>
+         </h1>
+      </div>
+
+      <div class="header-div">
+         <div class="avatar" style="display: inline">
+            <h1><i class="fa fa-mobile fa-2x"></i> +353 083 123 4567</h1>
+         </div>
+      </div>
    </div><!-- /header -->
 
    <div role="main" class="ui-content">
-      <h1>Contact number is: +353 083 123 4567</h1>
       <h3>Trigger alarm when:</h3>
       <label for="timeToWait">I have been unresponsive for (minutes):</label>
       <input type="range" name="timeToWait" id="timeToWait" min="5" max="30" value="10">
@@ -46,8 +48,8 @@
        </select>
    </div><!-- /content -->
 
-   <div class="ui-grid-a">
-      <div class="ui-block-a">
+   <div data-role="footer" class="ui-grid-a ui-state-persist" data-position="fixed">
+      <div class="ui-block-a ui-state-persist" data-position="fixed">
           <a id="toIndex" href="index.html" data-direction="reverse" class="ui-btn ui-corner-all ui-shadow" rel="external">&lt; Your trip</a>
       </div>
       <div class="ui-block-b">
@@ -55,65 +57,8 @@
       </div>
    </div>
 
-   <script type="text/javascript">
-   var data = {};
-   $("#settingsPage").bind("pageshow", function(event){
-      var url = getUrlVars();
-      var index = 0;
-      while (url["c"+index]) {
-        data["c"+index] = url["c"+index];
-        index++;
-      }
+    <script src="scripts/settings.js"></script>
 
-      $("#toIndex").mouseover(function() {
-         var query = getQueryString();
-         this.href = "index.html" + query;
-      });
-
-      $("#toContacts").mouseover(function() {
-         var query = getQueryString();
-         this.href = "contacts.html" + query;
-      });
-
-      var url = getUrlVars();
-      if (url.timeToWait && url.timeToWait !== 'undefined') {
-        $("#timeToWait").val(url.timeToWait);
-        $('#timeToWait').slider('refresh');
-      } 
-      if (url.distanceToWait && url.distanceToWait !== 'undefined') {
-        $("#distanceToWait").val(url.distanceToWait);
-        $('#distanceToWait').slider('refresh');
-      }
-      if (url.tryToReach && url.tryToReach !== 'undefined') {
-        $("#tryToReach").val(url.tryToReach);
-        $('#tryToReach').slider('refresh');
-      }
-   });
-
-    function getQueryString() {
-      var query = "?";
-      query += "timeToWait=" + $("#timeToWait").val();
-      query += "&distanceToWait=" + $("#distanceToWait").val();
-      query += "&tryToReach=" + $("#tryToReach").val();
-      var index = 0;
-      while (data["c"+index]) {
-        query += "&c" + index + "=" + data["c"+index];
-        index++;
-      }
-
-      return query;
-   }
-
-   function getUrlVars() {
-       var vars = [], hash;
-       var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-       for(var i = 0; i < hashes.length; i++) {
-           hash = hashes[i].split('=');
-           vars[hash[0]] = hash[1];
-       }
-       return vars;
-   }
-  </script>
 </div><!-- /page -->
 
 </body>
