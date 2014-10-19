@@ -6,32 +6,173 @@
    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
 
    <meta charset="utf-8">
-   <link rel="stylesheet" href="styles/jquery.mobile-1.4.4.min.css">
-   <script data-main="scripts/main" src="scripts/libs/require.js"></script>
+   <!-- Latest compiled and minified CSS -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+   <!-- Optional theme -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 
    <link rel="stylesheet" href="styles/css/font-awesome.css">
    <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
-   <link rel="stylesheet" href="styles/css/app.css">
    <link rel="stylesheet" href="styles/css/welcome.css">
 </head>
-<body>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
-
-   <div data-role="page">
-      <div data-role="header">
-         
+   <div class="container">
+      <div class="header">
+         <ul class="nav nav-pills pull-right">
+                <li class="hidden">
+                    <a class="page-scroll" href="#page-top"></a>
+                </li>
+                <li><a class="page-scroll" href="#sec-description">Description</a>
+                </li>
+                <li><a class="page-scroll" href="#sec-apis">APIs</a>
+                </li>
+                <li><a class="page-scroll" href="#sec-team">Team</a>
+                </li>
+         </ul>
+         <h3 class="text-muted">www.dublinlovers.ie</h3>
       </div>
-      <div role="main" class="ui-content">
-         <div class="title">
-            <h1><i class="fa fa-angellist fa-5x"></i></h1>
-            <h1><b>HONEY,I AM OK!</b>
-               <span>geo-agent to keep your people aware of your trip</span></h1>
+
+      <section id="sec-jumbotron">
+         <div class="jumbotron">
+           <div role="main" class="ui-content">
+            <div class="title">
+               <h1><i class="fa fa-angellist fa-5x"></i></h1>
+               <h1><b>HONEY,I AM OK!</b>
+                  <span>geo-agent to keep your people aware of your trip</span></h1>
+               </div>
+            </div>
+           <p><a class="btn btn-lg btn-success" href="/" role="button">Start a Trip</a></p>
          </div>
-      </div>
-      <div data-role="footer">
-         ©2014, DublinLovers = coded with ♥ - <a href="http://www.aol.ie/">AOL.ie</a>
-      </div>
-   </div>
+      </section>>
 
+      <section id="sec-description">
+         <div class="row detail">
+         <img class="img-circle" src="./img/hr.png" alt="Generic placeholder image" style="width: 397px; height: 65px;">
+         </div>
+         <div class="row marketing">
+           <div class="col-lg-6">
+             <h4><i class="fa fa-location-arrow"></i> Geo-Tracking</h4>
+             <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+             <h4><i class="fa fa-gear"></i> Triggers Configuration</h4>
+             <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+             <h4><i class="fa fa-twitter"></i> Subheading</h4>
+             <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+           </div>
+
+           <div class="col-lg-6">
+             <h4><i class="fa fa-group"></i> Use your contacts</h4>
+             <p>Here there is a list of your fucking crazy contacts.</p>
+
+             <h4><i class="fa fa-twitter"></i> Subheading</h4>
+             <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+             <h4><i class="fa fa-phone"></i> Automatic Calls and SMSs</h4>
+             <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+           </div>
+         </div>
+      </section>
+
+      <section id="sec-apis">
+         <div class="row detail">
+            <img class="img-circle" src="./img/hr.png" alt="Generic placeholder image" style="width: 397px; height: 65px;">
+         </div>
+
+         <div class="row">
+             <div class="col apis">
+                 <div class="col-md-5">
+                     <img class="img-circle img-thumbnail" src="./img/twilio.png" alt="Twilio">
+                 </div>
+
+                 <div class="col-md-7">
+                     <h4>Twilio</h4>
+                     <p>Here there is a list of your fucking crazy contacts.</p>
+                 </div>
+
+             </div>
+             <div class="col apis">
+
+                 <div class="col-md-5">
+                     <img class="img-circle img-thumbnail" src="./img/arcgis.png" alt="ArcGis">
+                 </div>
+
+                 <div class="col-md-7">
+                     <h4>ArcGis</h4>
+                     <p>Here there is a list of your fucking crazy contacts.</p>
+                 </div>
+             </div>
+         </div>
+      </section>
+
+      <section id="sec-team">
+         <div class="row detail">
+            <img class="img-circle" src="./img/hr.png" alt="Generic placeholder image" style="width: 397px; height: 65px;">
+         </div>
+         <!-- Three columns of text below the carousel -->
+         <div class="team container-fluid">
+            <div class="row">
+              <div class="col-lg-4">
+                <img class="img-circle" src="https://pbs.twimg.com/profile_images/507510962765586432/WQzbKXcM_400x400.jpeg" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+                <h2>Thomas Kountis</h2>
+                <p>Ojete.</p>
+                <p><a class="btn btn-default" href="https://twitter.com/tomkountis" role="button"><i class="fa fa-twitter"></i>
+   tomkountis</a></p>
+              </div><!-- /.col-lg-4 -->
+              <div class="col-lg-4">
+                <img class="img-circle" src="https://abs.twimg.com/sticky/default_profile_images/default_profile_3_400x400.png" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+                <h2>Ignacio Kruss</h2>
+                <p>Ojete.</p>
+                <p><a class="btn btn-default" href="http://www.twitter.com/nachokruss" role="button"><i class="fa fa-twitter"></i>
+   nachokruss</a></p>
+              </div><!-- /.col-lg-4 -->
+              <div class="col-lg-4">
+                <img class="img-circle" src="https://pbs.twimg.com/profile_images/523649906657882112/fC2YNyaF_400x400.jpeg" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+                <h2>Alvaro Pereda</h2>
+                <p>Software Engineer at AOL Mobile. A backend soul trapped in an Android body. Living in Dublin, close to the Guinness factory.</p>
+                <p><a class="btn btn-default" href="http://twitter.com/aperedas" role="button"><i class="fa fa-twitter"></i>
+   aperedas</a></p>
+              </div><!-- /.col-lg-4 -->
+            </div><!-- /.row -->  
+
+            <div class="row">
+              <div class="col-xs-6">
+                <img class="img-circle" src="https://pbs.twimg.com/profile_images/378800000269660874/5a4b27d71fe857ce214aa75a8f6dd8ae_400x400.jpeg" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+                <h2>Jose Martinez</h2>
+                <p>JAVA architect, economist in progress, father, student, sportsman, worker, a kind of clown and, if I've time... person</p>
+                <p><a class="btn btn-default" href="http://twitter.com/jmaralv" role="button"><i class="fa fa-twitter"></i>
+   jmaralv</a></p>
+              </div>
+              <div class="col-xs-6">
+                <img class="img-circle" src="https://pbs.twimg.com/profile_images/378800000204676369/4da9aebbb673c9c3bf37da783d557656_400x400.jpeg" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+                <h2>Quike Mora</h2>
+                <p>Consumo, luego existo.</p>
+                <p><a class="btn btn-default" href="http://twitter.com/quike" role="button"><i class="fa fa-twitter"></i>
+   quike</a></p>
+              </div>
+            </div><!-- /.row --> 
+         </div>
+      </section>
+      
+      <section id="sec-footer">
+         <div class="row detail">
+            <img class="img-circle" src="./img/line.png" alt="Generic placeholder image" style="width: 351px; height: 65px;">
+         </div>
+         <div class="row footer">
+           &copy; 2014, DublinLovers - http://www.dublinlovers.ie - coded with ♥ - <a href="http://www.aol.ie/">AOL.ie
+         </div>   
+      </section>
+      
+
+    </div>
+    <!-- Scrolling Nav JavaScript -->
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+   <script src="../scripts/libs/bootstrap/jquery.easing.min.js"></script>
+   <script src="../scripts/libs/bootstrap/scrolling-nav.js"></script>
 
 </body>
+</html>

@@ -56,7 +56,7 @@ class Monitor(Thread):
                     minutes_since_last_loc_change = (now - trip.lastLocationLogged).seconds / 60
 
                     print str(distance) + " and " + str(minutes_since_last_loc_change)
-                    if minutes_since_last_loc_change >= trip.trigger and distance <= 0:
+                    if minutes_since_last_loc_change >= trip.timeToWait and distance <= trip.distanceToWait:
                         print "Placing call for trip {0}.".format(trip.username)
                         call = TwilioCall([contact.phoneNumber for contact in trip.contacts.all()],
                                           "http://home.tkountis.com/honeyiamok/call_response.php?{0}",
