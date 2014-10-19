@@ -3,11 +3,6 @@
 }
 
 html { 
-  /*background: url(./../../img/cover.png) no-repeat center center fixed; */
-/*  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;*/
   color:#424849;
 }
 
@@ -31,7 +26,6 @@ ol, ul {
     line-height: 1;
     margin: 10 0 15px;
     text-shadow: 4px 3px 0 #1d9d74, 9px 8px 0 rgba(0, 0, 0, 0.15);
-    background-image: url('../images/gradient2.jpg');
 }
 .title b {
     font-size: 100%;
@@ -41,13 +35,18 @@ ol, ul {
     display: block;
     font-size: 55%;
     font-weight: 100;
-    color: #000;
+    color: #C4C4C4;
     text-shadow: 3px 4px 0 rgba(0, 0, 0, 0.15);
 
 }
 .title .fa-angellist {
     color: #444;
 }
+
+.subtitle {
+    padding:10px;
+}
+
 .profile {
     height: 100px;
     margin: 10px;
@@ -108,8 +107,3 @@ ol, ul {
     margin: 5px
 }
 
-
-a#start {
-    color: green;
-    background-color: #cfc;
-}
