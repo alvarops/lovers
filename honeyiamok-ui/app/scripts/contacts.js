@@ -59,7 +59,6 @@
               var contact = $.grep( autocompleteData, function( item ){
                 return (item.id && item.id == url["c"+index]);
               });
-              console.log(contact, autocompleteData);
               if (contact && contact.length > 0) {
                 $('#items').append('<a class="contact" href="#" data-icon="delete" data-role="button" data-id="' + contact[0].id 
                   + '">' + contact[0].name + '</a>');
@@ -87,12 +86,15 @@
           $("#start").click(function() {
              copyContactsToData();
 
+             if (!data.contacts || data.contacts.length == 0) {
+              alert("You have to select at least one contact!");
+              return;
+             }
+
              data.username = 'johndoe';
              data.interval = 1;
              data.fromLatLng = 0;
              data.toLatLng = 0;
-
-             console.log(JSON.stringify(data));
 
              $.ajax({
                   url: "http://127.0.0.1\:8000/trip/",
