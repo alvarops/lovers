@@ -14,10 +14,3 @@ urlpatterns = [
     url(r'^status/(?P<trip_id>\d+)', views.StatusView.as_view()),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
-
-thread = Monitor()
-thread.start()
-
-#print " hello "
-
-#initMonitorThread()

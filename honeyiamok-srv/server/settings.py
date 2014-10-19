@@ -35,8 +35,7 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',   
-    'corsheaders',
+    'django.contrib.staticfiles',
 )
 
 REST_FRAMEWORK = {
@@ -52,7 +51,6 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'server.custom.custom_middle'
 )
 
@@ -89,9 +87,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
-
-# Cross-Origin Resource Sharing
-CORS_ORIGIN_ALLOW_ALL = True
-
-#CORS_ALLOW_CREDENTIALS = None
-
