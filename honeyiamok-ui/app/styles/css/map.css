@@ -28,17 +28,17 @@ input#directions {
   display: block;
 }
 
-#input-origin, #input-destination{
+#fromTxf, #toTxf{
   display: block;
   min-height: 40px;
   color: #999;
   text-indent: 25px; 
 }
 
-#input-origin{
+#fromTxf{
   background: #fff url("./images/origin.png")  0 no-repeat;
 }
-#input-destination{
+#toTxf{
   background: #fff url("./images/destination.png")  0 no-repeat;
 }
 
