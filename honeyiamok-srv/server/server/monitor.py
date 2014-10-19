@@ -55,6 +55,5 @@ class ServerConfig(AppConfig):
     		raise KeyboardInterrupt
 
     	signal.signal(signal.SIGINT, terminate)
-    	print " ++ ready ++"
 
 
