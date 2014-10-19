@@ -25,9 +25,23 @@
 }
 input#directions {
   margin: 0.5em auto;
-  width:  8em;
   display: block;
 }
+
+#input-origin, #input-destination{
+  display: block;
+  min-height: 40px;
+  color: #999;
+  text-indent: 25px; 
+}
+
+#input-origin{
+  background: #fff url("./images/origin.png")  0 no-repeat;
+}
+#input-destination{
+  background: #fff url("./images/destination.png")  0 no-repeat;
+}
+
 .dgrid-row{
   padding:5px;
   margin-bottom:5px;
