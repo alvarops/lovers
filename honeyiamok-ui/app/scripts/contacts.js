@@ -108,7 +108,7 @@
                   }
               })
               .then( function ( response ) {
-                console.log(response);
+                window.location.href = "finish.html"
               });
           });
        });

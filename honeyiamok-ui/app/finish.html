@@ -9,19 +9,21 @@
    <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
    <script data-main="scripts/main" src="scripts/libs/jquery.ui.touch-punch.min.js"></script>
-   <script src="scripts/libs/jqm.autoComplete-1.5.2.js"></script>
+   <!-- // <script data-main="scripts/main" src="scripts/libs/require.js"></script> -->
 
    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css" />
    <link rel="stylesheet" href="styles/css/font-awesome.css">
    <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
    <link rel="stylesheet" href="styles/css/app.css">
+
 </head>
 <body>
 
 <!-- Start of first page -->
-<div data-role="page" id="contactsPage">  
+<div data-role="page" id="mainPage">
 
    <div data-role="header">
+
       <div class="title">
          <h1><i class="fa fa-angellist fa-2x"></i>
             <b>HONEY,I AM OK!</b>
@@ -30,27 +32,31 @@
       </div>
    </div><!-- /header -->
 
-   <div role="main" class="ui-content">
-     <i class="fa fa-group"></i> Contacts
-      <input type="search" id="searchField" placeholder="Type to search">
-      <ul id="suggestions" data-role="listview" data-inset="true"></ul>
-      <div id="items" data-role="button">
-      </div>
+   <div role="main" class="ui-content" style="text-align: justify">
+      <p style="text-align: center; color: green">
+         <i class="fa fa-check fa-5x"></i>
+      </p>
+      <br/>
+      <h1>Thanks for using our service, we wish you a pleasant journey</h1>
+      <br/>
+      <p style="text-align: center">
+         <i class="fa fa-car fa-4x"></i>&nbsp;&nbsp;&nbsp;
+         <i class="fa fa-smile-o fa-4x"></i>&nbsp;&nbsp;&nbsp;
+         <i class="fa fa-bicycle fa-4x"></i>
+      </p>
    </div><!-- /content -->
 
    <div data-role="footer" class="ui-grid-a" data-position="fixed">
       <div data-role="navbar">
       <ul>
          <li>
-        <a id="toSettings" href="settings.html" data-direction="reverse" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-l" rel="external">Settings</a>
-      </li><li>
-        <a id="start" href="#" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-right ui-icon-arrow-r" rel="external"> Start
+        <a role="button" id="toSettings" href="welcome.html" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-right ui-icon-arrow-r" rel="external">
+            Finish
         </a>
-      </li>
-    </ul>
+        </li>
+         </ul>
+      </div>
    </div>
-
-   <script src="scripts/contacts.js"></script>
 
 </div><!-- /page -->
 
