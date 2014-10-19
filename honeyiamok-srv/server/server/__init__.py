@@ -1,0 +1,1 @@
+default_app_config = 'server.server.monitor.ServerConfig'

@@ -7,7 +7,8 @@ class Contact(models.Model):
 
 class Trip(models.Model):
 	username = models.CharField(max_length=50)
-	interval = models.IntegerField()
+	interval = models.IntegerField(default=1)
+	trigger = models.IntegerField(default=10)
 	toLatLng = models.CharField(max_length=150)
 	fromLatLng = models.CharField(max_length=150)
 	lastPing = models.DateTimeField(blank=True, null=True)
