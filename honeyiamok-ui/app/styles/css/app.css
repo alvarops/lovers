@@ -1,0 +1,104 @@
+* {
+    font-family: 'Arvo', serif;
+}
+
+html { 
+  /*background: url(./../../img/cover.png) no-repeat center center fixed; */
+/*  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;*/
+  color:#424849;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    color: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+}
+ol, ul {
+    list-style: outside none none;
+}
+
+.title {
+    background-color: #3D5F64;
+    border-bottom: 1px solid #1b926c;
+    border-top: 1px solid #34a782;
+    margin-bottom: 0;
+    padding: 0 5px 0 5px;
+    color: #ffffff;
+    letter-spacing: -2px;
+    line-height: 1;
+    margin: 10 0 15px;
+    text-shadow: 4px 3px 0 #1d9d74, 9px 8px 0 rgba(0, 0, 0, 0.15);
+}
+.title b {
+    font-size: 100%;
+    padding-left: 10px;
+}
+.title span {
+    display: block;
+    font-size: 55%;
+    font-weight: 100;
+    color: #C4C4C4;
+    text-shadow: 3px 4px 0 rgba(0, 0, 0, 0.15);
+
+}
+.title .fa-angellist {
+    color: #444;
+}
+.profile {
+    height: 100px;
+    margin: 20px;
+    vertical-align: middle;
+}
+.header-div span {
+    display: inline;
+    font-size: 20pt;
+}
+
+.avatar img {
+    width: 100%;
+    max-width: 135px;
+    background: none repeat scroll 0% 0% #FFF;
+    height: auto;
+    padding: 5px;
+    box-sizing: border-box;
+    border: 1px solid #DDD;
+    display: block;
+}
+
+.avatar span {
+    background: none repeat scroll 0% 0% #FFF;
+    height: auto;
+    box-sizing: border-box;
+    display: block;
+}
+
+.label {
+    position: relative;
+    overflow: auto;
+    transition: opacity 150ms ease 0s;
+    margin: 0px 0px 10px;
+    padding: 5px 5px 1px;
+    display: block;
+    list-style-type: none;
+}
+
+.label li[class="labelitem"] {
+    text-shadow: 0px 1px #FFF;
+    display: block;
+    height: 90px
+}
+
+
+.navigator-arrows {
+    display: inline-block;
+}
+
+.my-icon {
+    vertical-align: middle;
+    margin: 5px
+}
+
+
