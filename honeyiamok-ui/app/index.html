@@ -27,10 +27,6 @@
 <!-- Start of first page -->
 <div data-role="page" id="mainPage" class="claro">
 
-<div data-role="panel" id="mydirections">
-    <!-- panel content goes here -->
-</div><!-- /panel -->
-
    <div data-role="header">
 
       <div class="title">
@@ -46,23 +42,42 @@
          </div>
       </div>
    </div><!-- /header -->
-
-   <div role="main" class="ui-content claro">
-    <div id="map"></div>
-       <div id="dialog">
-         <div>
-           <label for="fromTxf"><img src="http://static.arcgis.com/images/Symbols/Shapes/GreenPin1LargeB.png" width=24 height=24></label>
-           <input type="text" id="fromTxf" value="380 New York St, Redlands, CA 92373">
-         </div>
-         <div >
-           <label for="toTxf"><img src="http://static.arcgis.com/images/Symbols/Shapes/RedPin1LargeB.png" width=24 height=24></label>
-           <input type="text" id="toTxf" value="1320 Mona Ave, Redlands, CA 92374">
-         </div>
-         <input id="directions" type="button" value="Get Directions">
-         <div id="directionsDetail" style="clear:both;">
-           <div id="grid"></div>
-      </div>
-   </div>
+   
+   <div class="rwd-maps">
+       <!-- Lead story block -->
+       <div class="ui-block-a">
+           <div class="ui-body ui-body-d">
+               <i class="fa fa-map-marker fa-lg"></i> Map
+               <div id="map"></div>
+           </div>
+       </div>
+       <!-- secondary story block #1 -->
+       <div class="ui-block-b">
+           <div class="ui-body ui-body-d">
+               <i class="fa fa-building-o fa-lg"></i> Manual selection
+               <div id="dialog">
+                  <div>
+                    <label for="fromTxf"><img src="http://static.arcgis.com/images/Symbols/Shapes/GreenPin1LargeB.png" width=24 height=24></label>
+                    <input type="text" id="fromTxf" value="380 New York St, Redlands, CA 92373">
+                  </div>
+                  <div >
+                    <label for="toTxf"><img src="http://static.arcgis.com/images/Symbols/Shapes/RedPin1LargeB.png" width=24 height=24></label>
+                    <input type="text" id="toTxf" value="1320 Mona Ave, Redlands, CA 92374">
+                  </div>
+                  <input id="directions" type="button" value="Get Directions">
+                  </div>
+            </div>
+       </div>
+       <!-- secondary story block #2 -->
+       <div class="ui-block-c">
+           <div class="ui-body ui-body-d">
+               <div id="directionsDetail" style="clear:both;">
+                  <i class="fa fa-bicycle fa-lg"></i> Detailed journey
+                  <div id="grid"></div>
+               </div>
+           </div>
+       </div>
+   </div><!-- /rwd-example -->
 
    <div data-role="footer" class="ui-grid-a" data-position="fixed">
       <div data-role="navbar">

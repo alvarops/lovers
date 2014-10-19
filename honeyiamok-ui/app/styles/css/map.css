@@ -7,13 +7,9 @@
   height:100%;
   overflow:hidden;
   border: 1px solid #1b926c;
-  border-radius: 5px;
-
 }
 #dialog {
-  position: relative;
   padding: 5px;
-  width: 380px;
   background-color: #ffffff;
   border-radius: 5px;
   margin: 8px;
@@ -48,4 +44,69 @@ input#directions {
   float:right;
   color:#C0C0C0;
   font-style:italic;
+}
+
+/* Basic styles */
+.rwd-maps .ui-body {
+    text-align: left;
+    border-color: #ddd;
+}
+.rwd-maps p {
+    color: #777;
+    line-height: 140%
+}
+/* Stack all blocks to start */
+.rwd-maps .ui-block-a,
+.rwd-maps .ui-block-b,
+.rwd-maps .ui-block-c {
+    width: 100%;
+    float: none;
+}
+/* Collapsing borders */
+.rwd-maps > div + div .ui-body {
+    border-top-width: 0;
+}
+/* 1st breakpoint - Float B and C, leave A full width on top */
+@media all and (min-width: 42em) {
+    .rwd-maps {
+        overflow: hidden; /* Use this or a "clearfix" to give the container height */
+    }
+    .rwd-maps .ui-body {
+       min-height: 14em;
+    }
+    .rwd-maps .ui-block-b,
+    .rwd-maps .ui-block-c {
+      float: left;
+      width: 49.95%;
+    }
+}
+/* 2nd breakpoint - Float all, 50/25/25 */
+@media all and (min-width: 55em) {
+    .rwd-maps .ui-body {
+       min-height: 18em;
+    }
+    .rwd-maps .ui-block-a,
+    .rwd-maps .ui-block-c {
+      float: left;
+      width: 49.95%;
+    }
+    .rwd-maps .ui-block-b,
+    .rwd-maps .ui-block-c {
+      float: left;
+      width: 24.925%;
+    }
+}
+/* 3rd breakpoint - Bump up font size at very wide screens */
+@media all and (min-width: 75em) {
+
+    .rwd-maps .ui-block-a,
+    .rwd-maps .ui-block-c {
+      float: left;
+      width: 49.95%;
+    }
+    .rwd-maps .ui-block-b,
+    .rwd-maps .ui-block-c {
+      float: left;
+      width: 24.925%;
+    }
 }
