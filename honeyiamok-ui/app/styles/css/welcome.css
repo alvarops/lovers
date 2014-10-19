@@ -1,9 +1,6 @@
-* {
-    font-family: 'Arvo', serif;
-}
 
 html, body { 
-
+ font-family: 'Arvo', serif;
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
@@ -11,10 +8,15 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     font-weight: 500;
     line-height: 1.1;
 }
+.jumbotron{
+    background-color: #3D5F64;
+}
+.jumbotron p {
+    text-align: center;
+    margin-top: 30px;
+}
 .title {
     background-color: #3D5F64;
-    border-bottom: 1px solid #1b926c;
-    border-top: 1px solid #34a782;
     margin-bottom: 0;
     padding: 0 5px 0 5px;
     color: #ffffff;
@@ -24,12 +26,12 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     text-shadow: 4px 3px 0 #1d9d74, 9px 8px 0 rgba(0, 0, 0, 0.15);
 }
 .title b {
-    font-size: 150%;
+
     padding-left: 10px;
 }
 .title span {
     display: block;
-    font-size: 80%;
+    font-size: 55%;
     font-weight: 100;
     color: #C4C4C4;
     text-shadow: 3px 4px 0 rgba(0, 0, 0, 0.15);
@@ -53,4 +55,27 @@ div[data-role="page"] {
 }
 div[role="main"] {
     text-align: center;
+}
+
+.team, .detail {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.footer {
+    width: 100px;
+    height: 300px;
+    color: #D6D6D6;
+}
+.header{
+    margin-bottom: 20px;
+}
+
+.header a {
+    color: #444444;
+}
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+    color: #fff;
+    background-color: #444444;
 }
