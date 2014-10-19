@@ -38,6 +38,8 @@ class TwilioCall():
             call_answer_callback_url = self._call_answer_url.format(answer_callback_params)
             status_callback_url = self._CALL_STATUS_CB_URL.format(str(self._uuid))
 
+            print "Ready to start a call with msg: {0}".format(self._msg)
+
             for number in self._numbers_list:
                 print "...Calling {0}".format(number)
                 client.calls.create(

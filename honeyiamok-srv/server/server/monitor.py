@@ -7,6 +7,7 @@ from django.apps import AppConfig
 import signal
 from datetime import datetime
 from django.utils import timezone
+from server.reverse_geo import get_address
 from server.twillio.callers.twilio_api import TwilioCall
 
 
@@ -61,9 +62,18 @@ class Monitor(Thread):
                     if (minutes_since_last_loc_change >= trip.timeToWait and distance <= trip.distanceToWait) or \
                             minutes_since_last_ping >= trip.timeToWait:
                         print "Placing call for trip {0}.".format(trip.username)
+                        locations_list = trip.location_set.all()
+                        last_known_loc = locations_list.reverse()[0] if len(locations_list) > 0 else None
+                        if not last_known_loc:
+                            continue
+
+                        #coords = last_known_loc.latLng.split(",")
+                        #last_known_addr = get_address.point_to_address(coords[0], coords[1])
                         call = TwilioCall([contact.phoneNumber for contact in trip.contacts.all()],
                                           "http://home.tkountis.com/honeyiamok/call_response.php?{0}",
-                                          "Hello there, Your gay friend is dead.")
+                                          "Hello there, we lost track of {0} in the last {1} minutes. "
+                                          "The last known coordinates we managed to record are '{2}'."
+                                          "Please try to come in contact.".format(trip.username, trip.timeToWait, last_known_loc.latLng))
                         call.start()
                         trip.delete() #hack to stop the freaking callout
                         print "answered: " + str(call.has_answered())

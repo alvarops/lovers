@@ -1,4 +1,8 @@
 Django==1.7
+django-cors-headers==0.13
 djangorestframework==2.4.3
+httplib2==0.9
+requests==2.4.3
+six==1.8.0
+twilio==3.6.8
 wsgiref==0.1.2
-twilio
