@@ -6,6 +6,9 @@
 #map {
   height:100%;
   overflow:hidden;
+  border: 1px solid #1b926c;
+  border-radius: 5px;
+
 }
 #dialog {
   position: relative;
