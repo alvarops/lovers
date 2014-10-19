@@ -9,11 +9,10 @@
  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
  <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
- <script data-main="scripts/main" src="scripts/libs/jquery.ui.touch-punch.min.js"></script>
- <script src="//js.arcgis.com/3.11/"></script>
+ <script data-main="scripts/main" src="scripts/libs/jquery.ui.touch-punch.min.js"></script> 
+<script src="//js.arcgis.com/3.11/"></script>
  <script data-main="scripts/main" src="scripts/libs/require.js"></script>
- <script data-main="scripts/main" src="scripts/RouteParameters.js"></script>
-
+ 
  <link rel="stylesheet" href="styles/css/font-awesome.css">
  <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
  <link rel="stylesheet" type="text/css" href="http://js.arcgis.com/3.11/esri/css/esri.css">
@@ -80,27 +79,28 @@ var routeParams;
 
 require([
   "esri/map", "esri/tasks/locator", "esri/SpatialReference",
-  "esri/tasks/RouteTask","esri/tasks/RouteResult",
+  "esri/tasks/RouteTask","esri/tasks/RouteResult", "esri/tasks/RouteParameters",
   "esri/tasks/FeatureSet", "esri/units", "esri/config", "esri/lang",
   "esri/symbols/PictureMarkerSymbol", "esri/graphic",
   "esri/symbols/SimpleMarkerSymbol",
   "esri/symbols/SimpleLineSymbol",
-  "esri/urlUtils",
+  "esri/urlUtils", "dojo/parser", 
   "esri/IdentityManager",
   "dojo/promise/all", "dojo/_base/array", "esri/Color",
   "dojo/dom", "dojo/dom-construct", "dojo/on", "dojo/number",
   "dgrid/Grid", "dojo/domReady!"
   ], function(
     Map, Locator, SpatialReference,
-    RouteTask,RouteResult,
+    RouteTask, RouteResult, RouteParameters,
     FeatureSet, esriUnits, esriConfig, esriLang,
     PictureMarkerSymbol, Graphic, SimpleMarkerSymbol,
     SimpleLineSymbol, 
-    urlUtils, IdentityManager,
+    urlUtils, parser, IdentityManager,
     all, arrayUtils, Color,
     dom, domConstruct, on, number,
     Grid
     ) {
+    parser.parse();
     var locator, segmentGraphic, directionFeatures, grid;
     var first = true;
     var fromPoint, toPoint;
@@ -198,10 +198,10 @@ require([
           //   SimpleMarkerSymbol.STYLE_CROSS, 22,
           //   new SimpleLineSymbol(SimpleLineSymbol.STYLE_SOLID, new Color([0, 128, 0]), 4));
 
-var clickPointGraphic = new Graphic(evt.mapPoint, pointSymbol);
+          var clickPointGraphic = new Graphic(evt.mapPoint, pointSymbol);
 
-map.graphics.add(clickPointGraphic);
-if (secondAdded) {
+          map.graphics.add(clickPointGraphic);
+          if (secondAdded) {
             // var url = "https://route.arcgis.com/arcgis/rest/services/World/Route/NAServer/Route_World/solve";
             // var data = {
             //   "token":token,
@@ -213,24 +213,24 @@ if (secondAdded) {
             //   f:"json"
             // };
             //Add a network analyst server with related parameters to execute the routing task.
-            routeParams.stops.features.push(fromPoint);
-            routeParams.stops.features.push(toPoint);
+            // routeParams.stops.features.push(fromPoint);
+            // routeParams.stops.features.push(toPoint);
          
-            routeParams.token = token;
+            // routeParams.token = token;
 
             //Show the route when the routing task is solved successfully, otherwise fire errorHandler.
-            routeTask.on("solve-complete", showRoute);
-            routeTask.on("error", errorHandler);
-            routeTask.solve(routeParams);
-            // url = "http://route.arcgis.com/arcgis/rest/services/World/Route/NAServer/Route_World/solve?stops=116.39722919900055%2C39.90749657700047%3B121.45805638600052%2C31.22221723400048&f=json&token=" + token;
+            // routeTask.on("solve-complete", showRoute);
+            // routeTask.on("error", errorHandler);
+            // routeTask.solve(routeParams);
+            url = "http://route.arcgis.com/arcgis/rest/services/World/Route/NAServer/Route_World/solve?stops=116.39722919900055%2C39.90749657700047%3B121.45805638600052%2C31.22221723400048&f=json&token=" + token;
             
-            // $.ajax({
-            // dataType: "json",
-            // url: url,
-            // data: null,
-            // method:"GET",
-            // success: routesReceived
-            // });
+            $.ajax({
+            dataType: "json",
+            url: url,
+            data: null,
+            method:"GET",
+            success: routesReceived
+            });
 
 }
           // use promise/all to monitor when place search and drive time calculation finish
