@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>HONEY:I AM OK!</title>
+   <link rel='shortcut icon' type='image/x-icon' href='img/favicon.ico' />
+   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+
+   <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+   <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+   <script data-main="scripts/main" src="scripts/libs/jquery.ui.touch-punch.min.js"></script>
+   <script data-main="scripts/main" src="scripts/libs/require.js"></script>
+
+   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css" />
+   <link rel="stylesheet" href="styles/css/font-awesome.css">
+   <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+   <link rel="stylesheet" href="styles/css/app.css">
+
+</head>
+<body>
+
+<!-- Start of first page -->
+<div data-role="page" id="mainPage">
+
+   <div data-role="header">
+
+      <div class="title">
+         <h1><i class="fa fa-angellist fa-2x"></i>
+            <b>HONEY,I AM OK!</b>
+            <span>geo-agent to keep your people aware of your trip</span>
+         </h1>
+      </div>
+
+      <div class="header-div">
+         <div class="avatar" style="display: inline">
+            <img src="img/avatar.png" class="profile" />
+            <span>John Doe</span>
+         </div>
+      </div>
+   </div><!-- /header -->
+
+   <i class="fa fa-map-market fa-2x">
+   <div role="main" class="ui-content">
+      <div id="map" class="map">
+      <div id="LocateButton"></div>
+   </div><!-- /content -->
+
+   <div data-role="footer" class="ui-grid-a" data-position="fixed">
+      <div class="ui-block-a"></div>
+      <div class="ui-block-b">
+        
+      </div>
+      <div class="navigator-arrows ui-block-b">
+
+        <a role="button" id="toSettings" href="settings.html" class="ui-btn ui-corner-all" rel="external">
+            Settings  <i class="fa fa-caret-square-o-right"></i>
+        </a>
+      </div>
+   </div>
+
+
+<script src="scripts/main.js"></script>
+
+</div><!-- /page -->
+
+</body>
+</html>

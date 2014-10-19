@@ -1,0 +1,56 @@
+* {
+    font-family: 'Arvo', serif;
+}
+
+html, body { 
+
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    color: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+}
+.title {
+    background-color: #3D5F64;
+    border-bottom: 1px solid #1b926c;
+    border-top: 1px solid #34a782;
+    margin-bottom: 0;
+    padding: 0 5px 0 5px;
+    color: #ffffff;
+    letter-spacing: -2px;
+    line-height: 1;
+    margin: 10 0 15px;
+    text-shadow: 4px 3px 0 #1d9d74, 9px 8px 0 rgba(0, 0, 0, 0.15);
+}
+.title b {
+    font-size: 150%;
+    padding-left: 10px;
+}
+.title span {
+    display: block;
+    font-size: 80%;
+    font-weight: 100;
+    color: #C4C4C4;
+    text-shadow: 3px 4px 0 rgba(0, 0, 0, 0.15);
+
+}
+.title .fa-angellist {
+    color: #444;
+}
+.profile {
+    height: 100px;
+    margin: 20px;
+    vertical-align: middle;
+}
+.header-div span {
+    display: inline;
+    font-size: 20pt;
+}
+
+div[data-role="page"] {
+    background-color: #3D5F64;
+}
+div[role="main"] {
+    text-align: center;
+}

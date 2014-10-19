@@ -1,4 +1,3 @@
-lovers
+Honey...I am OK! 
 ======
-https://www.twilio.com/sms/api
-https://docs.nexmo.com/index.php/sms-api
+Information about UI part of the app.
