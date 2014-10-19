@@ -44,7 +44,18 @@ ol, ul {
 }
 
 .subtitle {
-    padding:10px;
+    padding:5px;
+}
+
+.subtitle a.phone{
+    color: #444;
+    font-size: 16pt;
+    text-decoration:none;
+}
+.subtitle a.phone:visited,a.phone:hover {
+    color: #444;
+        text-shadow: 3px 4px 0 rgba(0, 0, 0, 0.15);
+
 }
 
 .profile {
@@ -96,7 +107,6 @@ ol, ul {
     display: block;
     height: 90px
 }
-
 
 .navigator-arrows {
     display: inline-block;
