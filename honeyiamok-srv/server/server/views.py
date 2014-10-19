@@ -4,7 +4,6 @@ from datetime import timedelta, datetime
 from django.http import HttpResponse
 from django.utils import timezone
 from rest_framework import viewsets
-from server.server.monitor import Monitor
 from models import Trip, Contact, Location
 from server.server.serializers import TripSerializer, ContactSerializer
 from django.views.generic import View

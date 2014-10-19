@@ -39,6 +39,7 @@ class TwilioCall():
             status_callback_url = self._CALL_STATUS_CB_URL.format(str(self._uuid))
 
             for number in self._numbers_list:
+                print "...Calling {0}".format(number)
                 client.calls.create(
                     to=number,
                     from_=self._MY_NUMBER,
@@ -52,7 +53,7 @@ class TwilioCall():
                 status_checker.daemon = True
                 status_checker.start()
                 status_checker.join()
-                print self.has_answered()
+
                 if self.has_answered():
                     break
 
@@ -82,7 +83,7 @@ class TwilioCall():
 
 
 if __name__ == "__main__":
-    caller = TwilioCall(["+353831535892"],
+    caller = TwilioCall(["+353831535892", "+353834416095"],
                           "http://home.tkountis.com/honeyiamok/call_response.php?{0}",
                           "Hello there, I hope you are enjoying the hackathon.")
     caller.start()
