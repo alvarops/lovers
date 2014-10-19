@@ -4,7 +4,6 @@ from datetime import timedelta, datetime
 from django.http import HttpResponse
 from django.utils import timezone
 from rest_framework import viewsets
-from server.server.monitor import Monitor
 from models import Trip, Contact, Location
 from server.server.serializers import TripSerializer, ContactSerializer
 from django.views.generic import View
@@ -47,13 +46,16 @@ class StatusView(View):
         last_ping = datetime.now(tz=timezone.utc)
         ignore_lat_lng = False
 
-        if trip.lastPing:
-            ignore_lat_lng = not datetime.now(tz=timezone.utc) >= (trip.lastPing + timedelta(minutes=1))
+        if trip.lastLocationLogged:
+            ignore_lat_lng = not datetime.now(tz=timezone.utc) >= (trip.lastLocationLogged + timedelta(minutes=1))
 
         trip.lastPing = last_ping
         trip.save()
 
         if not ignore_lat_lng:
+            trip.lastLocationLogged = last_ping
+            trip.save()
+
             location = Location()
             location.latLng = lat_lng
             location.trip = trip

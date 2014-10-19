@@ -1,4 +1,4 @@
-   var autocompleteData = {};
+   var autocompleteData = {}, data = {};
 
    $("#contactsPage").bind("pageinit", function(e) {
         $.ajax({
@@ -59,7 +59,6 @@
               var contact = $.grep( autocompleteData, function( item ){
                 return (item.id && item.id == url["c"+index]);
               });
-              console.log(contact, autocompleteData);
               if (contact && contact.length > 0) {
                 $('#items').append('<a class="contact" href="#" data-icon="delete" data-role="button" data-id="' + contact[0].id 
                   + '">' + contact[0].name + '</a>');
@@ -73,7 +72,6 @@
              });
           });
 
-       var data = {};
         $(document).bind("pageinit", function() {
           $("#toSettings").mouseover(function() {
              var contacts = extractContacts();
@@ -87,8 +85,33 @@
 
           $("#start").click(function() {
              copyContactsToData();
-             alert("Sent!");
-             console.log(data);
+
+             if (!data.contacts || data.contacts.length == 0) {
+              alert("You have to select at least one contact!");
+              return;
+             }
+
+             data.username = 'johndoe';
+             data.interval = 1;
+             data.fromLatLng = 0;
+             data.toLatLng = 0;
+
+             $.ajax({
+                  url: "http://127.0.0.1\:8000/trip/",
+                  dataType: "json",
+                  contentType: 'application/json',
+                  xhrFields: {
+                    withCredentials: true
+                  },
+                  type: "POST",
+                  data: JSON.stringify(data),
+                  error: function() {
+                    alert('Unable to contact the server!');
+                  }
+              })
+              .then( function ( response ) {
+                window.location.href = "finish.html"
+              });
           });
        });
    });
@@ -112,8 +135,8 @@
    }
 
    function copyContactsToData() {
-     data.contacts = {};
+     data.contacts = [];
      $("a.contact").each(function (index, item, args) {
-       data.contacts[index] = $(item).attr("data-id");
+       data.contacts.push(parseInt($(item).attr("data-id")));
      });
    }

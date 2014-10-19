@@ -9,9 +9,11 @@
    <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
    <script data-main="scripts/main" src="scripts/libs/jquery.ui.touch-punch.min.js"></script>
-   <script data-main="scripts/main" src="scripts/libs/require.js"></script>
+   <!-- // <script data-main="scripts/main" src="scripts/libs/require.js"></script> -->
 
    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css" />
+   <link rel="stylesheet" href="styles/css/custom-theme.min.css" />
+   <link rel="stylesheet" href="styles/css/jquery.mobile.icons.min.css" />
    <link rel="stylesheet" href="styles/css/font-awesome.css">
    <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
    <link rel="stylesheet" href="styles/css/app.css">
@@ -46,20 +48,20 @@
    </div><!-- /content -->
 
    <div data-role="footer" class="ui-grid-a" data-position="fixed">
-      <div class="ui-block-a"></div>
-      <div class="ui-block-b">
-        
-      </div>
-      <div class="navigator-arrows ui-block-b">
-
-        <a role="button" id="toSettings" href="settings.html" class="ui-btn ui-corner-all" rel="external">
-            Settings  <i class="fa fa-caret-square-o-right"></i>
+      <div data-role="navbar">
+      <ul>
+         <li><a id="toIndex" href="welcome.html" data-direction="reverse" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-l" rel="external">Cancel</a></li>
+         <li>
+        <a role="button" id="toSettings" href="settings.html" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-right ui-icon-arrow-r" rel="external">
+            Settings
         </a>
+        </li>
+         </ul>
       </div>
    </div>
 
 
-<script src="scripts/main.js"></script>
+<script src="scripts/index.js"></script>
 
 </div><!-- /page -->
 
