@@ -1,4 +1,4 @@
-   var autocompleteData = {};
+   var autocompleteData = {}, data = {};
 
    $("#contactsPage").bind("pageinit", function(e) {
         $.ajax({
@@ -73,7 +73,6 @@
              });
           });
 
-       var data = {};
         $(document).bind("pageinit", function() {
           $("#toSettings").mouseover(function() {
              var contacts = extractContacts();
