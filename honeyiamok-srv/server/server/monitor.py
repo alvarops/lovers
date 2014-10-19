@@ -55,9 +55,11 @@ class Monitor(Thread):
 
                     distance = compute_distance_of_recent_points_in_meters(trip)
                     minutes_since_last_loc_change = (now - trip.lastLocationLogged).seconds / 60
+                    minutes_since_last_ping = (now - trip.lastPing).seconds / 60
 
                     print str(distance) + " and " + str(minutes_since_last_loc_change)
-                    if minutes_since_last_loc_change >= trip.timeToWait and distance <= trip.distanceToWait:
+                    if (minutes_since_last_loc_change >= trip.timeToWait and distance <= trip.distanceToWait) or \
+                            minutes_since_last_ping >= trip.timeToWait:
                         print "Placing call for trip {0}.".format(trip.username)
                         call = TwilioCall([contact.phoneNumber for contact in trip.contacts.all()],
                                           "http://home.tkountis.com/honeyiamok/call_response.php?{0}",
