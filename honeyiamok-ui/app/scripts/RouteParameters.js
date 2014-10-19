@@ -1,7 +1,7 @@
 // All material copyright ESRI, All Rights Reserved, unless otherwise specified.
 // See http://js.arcgis.com/3.11/esri/copyright.txt for details.
 //>>built
-define('esri/tasks/RouteParameters', 'dojo/_base/declare dojo/_base/lang dojo/_base/json dojo/has ../kernel ../lang ../graphicsUtils ./NATypes'.split(' '), function (c, f, d, g, h, k, e, l) {
+define('RouteParameters', 'dojo/_base/declare dojo/_base/lang dojo/_base/json dojo/has ../kernel ../lang ../graphicsUtils ./NATypes'.split(' '), function (c, f, d, g, h, k, e, l) {
     c = c(null, {
         declaredClass: 'esri.tasks.RouteParameters',
         accumulateAttributes: null,

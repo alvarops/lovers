@@ -5,10 +5,11 @@
     <link rel='shortcut icon' type='image/x-icon' href='img/favicon.ico' />
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
 
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css" />
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
     <script data-main="scripts/main" src="scripts/libs/jquery.ui.touch-punch.min.js"></script>
+
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css" />
     <link rel="stylesheet" href="styles/css/font-awesome.css">
     <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="styles/css/app.css">
@@ -28,7 +29,7 @@
       </div>
 
       <div class="header-div">
-         <div class="avatar" style="display: inline">
+         <div style="display: inline">
             <h1><i class="fa fa-mobile fa-2x"></i> +353 083 123 4567</h1>
          </div>
       </div>
@@ -49,11 +50,17 @@
    </div><!-- /content -->
 
    <div data-role="footer" class="ui-grid-a ui-state-persist" data-position="fixed">
+
       <div class="ui-block-a ui-state-persist" data-position="fixed">
-          <a id="toIndex" href="index.html" data-direction="reverse" class="ui-btn ui-corner-all ui-shadow" rel="external">&lt; Your trip</a>
+        <div class="navigator-arrows ui-block-b">
+          <a id="toIndex" href="index.html" data-direction="reverse" class="ui-btn ui-corner-all ui-shadow" rel="external"><i class="fa fa-caret-square-o-left"></i> Your trip</a>
+        </div>  
       </div>
       <div class="ui-block-b">
-        <a id="toContacts" href="contacts.html" class="ui-btn ui-corner-all ui-shadow" rel="external">Contacts &gt;</a>
+      <div class="navigator-arrows ui-block-b">
+          <a id="toContacts" href="contacts.html" class="ui-btn ui-corner-all ui-shadow" rel="external">Contacts <i class="fa fa-caret-square-o-right"></i>
+        </a>
+        </div>  
       </div>
    </div>
 

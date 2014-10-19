@@ -3,11 +3,12 @@
 }
 
 html { 
-  background: url(./../../img/cover.png) no-repeat center center fixed; 
+  /*background: url(./../../img/cover.png) no-repeat center center fixed; */
 /*  -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;*/
+  color:#424849;
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
@@ -15,6 +16,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     font-weight: 500;
     line-height: 1.1;
 }
+ol, ul {
+    list-style: outside none none;
+}
+
 .title {
     background-color: #3D5F64;
     border-bottom: 1px solid #1b926c;
@@ -52,7 +57,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     font-size: 20pt;
 }
 
-.avatar  img {
+.avatar img {
     width: 100%;
     max-width: 135px;
     background: none repeat scroll 0% 0% #FFF;
@@ -69,3 +74,31 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     box-sizing: border-box;
     display: block;
 }
+
+.label {
+    position: relative;
+    overflow: auto;
+    transition: opacity 150ms ease 0s;
+    margin: 0px 0px 10px;
+    padding: 5px 5px 1px;
+    display: block;
+    list-style-type: none;
+}
+
+.label li[class="labelitem"] {
+    text-shadow: 0px 1px #FFF;
+    display: block;
+    height: 90px
+}
+
+
+.navigator-arrows {
+    display: inline-block;
+}
+
+.my-icon {
+    vertical-align: middle;
+    margin: 5px
+}
+
+
