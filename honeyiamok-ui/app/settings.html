@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HONEY:I AM OK!</title>
+    <link rel='shortcut icon' type='image/x-icon' href='img/favicon.ico' />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+    <script data-main="scripts/main" src="scripts/libs/jquery.ui.touch-punch.min.js"></script>
+    <link rel="stylesheet" href="styles/css/font-awesome.css">
+    <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="styles/css/app.css">
+</head>
+<body>
+
+<!-- Start of second page -->
+<div data-role="page" id="settingsPage">
+
+   <div data-role="header">
+
+      <div class="title">
+         <h1><i class="fa fa-angellist"></i>
+            <b>HONEY,I AM OK!</b>
+            <span>geo-agent to keep your people aware of your trip</span>
+         </h1>
+      </div>
+
+      <div class="header-div">
+         <div class="avatar" style="display: inline">
+            <h1><i class="fa fa-mobile fa-2x"></i> +353 083 123 4567</h1>
+         </div>
+      </div>
+   </div><!-- /header -->
+
+   <div role="main" class="ui-content">
+      <h3>Trigger alarm when:</h3>
+      <label for="timeToWait">I have been unresponsive for (minutes):</label>
+      <input type="range" name="timeToWait" id="timeToWait" min="5" max="30" value="10">
+      <h3>OR</h3>
+      <label for="distanceToWait">I have not moved further than (meters):</label>
+      <input type="range" name="distanceToWait" id="distanceToWait" min="10" max="5000" value="50">
+      <label for="tryToReach">Try to contact me first:</label>
+       <select id="tryToReach" name="tryToReach" data-role="slider">
+           <option value="off">Off</option>
+           <option value="on" selected>On</option>
+       </select>
+   </div><!-- /content -->
+
+   <div data-role="footer" class="ui-grid-a ui-state-persist" data-position="fixed">
+      <div class="ui-block-a ui-state-persist" data-position="fixed">
+          <a id="toIndex" href="index.html" data-direction="reverse" class="ui-btn ui-corner-all ui-shadow" rel="external">&lt; Your trip</a>
+      </div>
+      <div class="ui-block-b">
+        <a id="toContacts" href="contacts.html" class="ui-btn ui-corner-all ui-shadow" rel="external">Contacts &gt;</a>
+      </div>
+   </div>
+
+    <script src="scripts/settings.js"></script>
+
+</div><!-- /page -->
+
+</body>
+</html>
