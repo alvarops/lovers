@@ -25,12 +25,13 @@ ol, ul {
     border-bottom: 1px solid #1b926c;
     border-top: 1px solid #34a782;
     margin-bottom: 0;
-    padding: 0 5px 0 5px;
+    padding: 0 5px 0 20px;
     color: #ffffff;
     letter-spacing: -2px;
     line-height: 1;
     margin: 10 0 15px;
     text-shadow: 4px 3px 0 #1d9d74, 9px 8px 0 rgba(0, 0, 0, 0.15);
+    background-image: url('../images/gradient2.jpg');
 }
 .title b {
     font-size: 100%;
@@ -40,7 +41,7 @@ ol, ul {
     display: block;
     font-size: 55%;
     font-weight: 100;
-    color: #C4C4C4;
+    color: #000;
     text-shadow: 3px 4px 0 rgba(0, 0, 0, 0.15);
 
 }
@@ -49,9 +50,14 @@ ol, ul {
 }
 .profile {
     height: 100px;
-    margin: 20px;
+    margin: 10px;
     vertical-align: middle;
 }
+
+.header-div h1 {
+    margin-left: 15px;
+}
+
 .header-div span {
     display: inline;
     font-size: 20pt;
@@ -73,6 +79,7 @@ ol, ul {
     height: auto;
     box-sizing: border-box;
     display: block;
+    padding-left: 10px;
 }
 
 .label {
@@ -102,3 +109,7 @@ ol, ul {
 }
 
 
+a#start {
+    color: green;
+    background-color: #cfc;
+}

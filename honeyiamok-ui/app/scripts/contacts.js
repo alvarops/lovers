@@ -86,8 +86,30 @@
 
           $("#start").click(function() {
              copyContactsToData();
-             alert("Sent!");
-             console.log(data);
+
+             data.username = 'johndoe';
+             data.interval = 1;
+             data.fromLatLng = 0;
+             data.toLatLng = 0;
+
+             console.log(JSON.stringify(data));
+
+             $.ajax({
+                  url: "http://127.0.0.1\:8000/trip/",
+                  dataType: "json",
+                  contentType: 'application/json',
+                  xhrFields: {
+                    withCredentials: true
+                  },
+                  type: "POST",
+                  data: JSON.stringify(data),
+                  error: function() {
+                    alert('Unable to contact the server!');
+                  }
+              })
+              .then( function ( response ) {
+                console.log(response);
+              });
           });
        });
    });
@@ -111,8 +133,8 @@
    }
 
    function copyContactsToData() {
-     data.contacts = {};
+     data.contacts = [];
      $("a.contact").each(function (index, item, args) {
-       data.contacts[index] = $(item).attr("data-id");
+       data.contacts.push(parseInt($(item).attr("data-id")));
      });
    }
